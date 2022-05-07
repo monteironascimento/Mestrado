@@ -1,0 +1,15 @@
+Abstract. Microservices based architectures are based on a set of modular, independent and fault-tolerant services. In recent years, the software
+engineering community presented studies investigating potential, recurrent, effective architectural patterns in microservices-based architectures,
+as they are very essential to maintain and scale microservice-based systems. Indeed, the organizational structure of such systems should be
+reflected in so-called microservice architecture patterns, that best fit the
+projects and development teams needs. However, there is a lack of public repositories sharing open sources projects microservices patterns and
+practices, which could be beneficial for teaching purposes and future
+research investigations. This paper tries to fill this gap, by sharing a
+dataset, having a first curated list microservice-based projects. Specifically, the dataset is composed of 20 open-source projects, all using specific
+microservice architecture patterns. Moreover, the dataset also reports information about inter-service calls or dependencies of the aforementioned
+projects. For the analysis, we used two different tools (1) SLOCcount
+and (2) MicroDepGraph to get different parameters for the microservice
+dataset. Both the microservice dataset and analysis tool are publicly
+available online. We believe that this dataset will be highly used by
+the research community for understanding more about microservices architectural and dependencies patterns, enabling researchers to compare
+results on common projects.

@@ -1,0 +1,296 @@
+
+1-----------------------------------------
+
+void troca (int *x, int *y){ 
+   int temp = *x; 
+   *x = *y; 
+   *y = temp; 
+}
+
+
+
+void permuta(int *a, int *b, int *c){
+
+    if(*a > *b){
+    
+        if(*b > *c){
+    
+            if(*a > *c){
+                troca(a, c);
+            }else{
+                troca(b, c);
+            }
+        }else{
+            
+            if(*a > *c){
+                troca(a,c);
+                troca(a,b);
+            }else{                
+                troca(a, b);
+            }
+        }
+    }else{
+
+        if(*b > *c){
+
+            if(*a > *c){
+                troca(c, a);
+                troca(b, c);
+            }else{
+                troca(b, c);
+            }
+        }else{
+            
+        }
+    }
+
+    return;
+}
+
+
+
+2 ----------------------------------------------
+
+
+
+void normaliza(float *v, int N){
+
+    float maiorElemento = 0;
+
+    for (int i = 0; i < N; i++)
+    {
+        if(maiorElemento < v[i]){
+            maiorElemento = v[i];
+        }
+    }
+    
+
+    for (int i = 0; i < N; i++)
+    {
+        v[i] = v[i] / maiorElemento;
+    }
+
+};
+
+
+3 ----------------------------------------------
+
+void produto(int *v1, int *v2, int *v3, int N){
+
+    for (int i = 0; i < N; i++)
+    {
+        v3[i] = v2[i] * v1[i];
+    }
+    
+};
+
+
+
+4----------------------------------------------
+
+void *produto(int *v1, int *v2, int N){
+
+int v3[N];
+
+for (int i = 0; i < N; i++)
+{
+v3[i] = v2[i] * v1[i];
+}
+};
+
+--verificar
+
+
+
+5-------------------------------------------------------
+
+int K_esimoDigito(int n, int k){
+
+    if (k <= 0){
+        
+        return -1;
+    }
+ 
+    while ((k - 1) > 0 && n > 0){
+        n = n / 10;
+        k--;
+    }
+ 
+    if (n == 0){
+        return -1;
+    }else{
+        return(n % 10);
+    }
+
+    return -1;
+
+};
+
+
+6----------------------------------------------
+
+void projecao(int *x, int *y,int *z){
+
+    int xp = *x;
+    int xy = *y;
+    int xz = *z;
+
+    *x = (xp/xz);
+    *y = (xy/xz);
+    *z = 1;
+};
+
+7 -------------------------------------------------
+
+int swapLines(int *m, int lines, int columns, int i1, int i2){
+
+
+    if(lines < i1){
+        return 1;
+    }
+
+    int columInit = 0;
+    int columInitb = 0;
+
+    
+        if(i1 == 0){
+           columInit = 0; 
+           columInitb = (i2 - 1) * columns; 
+        }else{
+           columInit = (i1 - 1) * columns;
+           columInitb = (i1 - 1) * columns;
+
+            for (int i = 0; i < columns; i++)
+            {
+               
+
+            int com = * ( m + (i1 * columInit) + i);
+            * ( m + (i1 * columInit) + i) = * ( m + (i2 * columInitb) + i);
+            * ( m + (i2 * columInitb) + i) = com;
+            }
+            
+            return 0;
+        }
+
+    for (int i = 0; i < columns; i++)
+    {
+       
+
+       int com = * ( m + (i1 * columInit) + i);
+       * ( m + (i1 * columInit) + i) = * ( m + (i2 * columInitb) + i);
+       * ( m + (i2 * columInitb) + i) = com;
+    }
+    
+    return 0;
+
+};
+
+8 ----------------------------------------------
+
+int swapColumns(int *m, int lines, int columns, int j1, int j2) {
+    
+    if(j1 > columns || j2 > columns){
+        return 1;
+    }
+
+    for (int i = 0; i < lines; i++)
+    {
+        int com = * ( m + ( i * columns) +j1 );
+
+        * ( m + ( i * columns) +j1 ) = * ( m + ( i * columns) +j2 );
+        * ( m + ( i * columns) +j2 ) = com;
+        
+    } 
+    return 0;
+};
+
+
+9 ----------------------------------------------
+
+atribuindo o valor 2 para o campo x do da tipagem T
+#include "stdio.h"
+typedef struct{ 
+   int x;  
+   int y;
+} T; /* A estrutura tem o nome de T, pode ser criada uma variável deste tipo. */
+
+void f1(T*a); /* função na qual recebe uma variavel do tipo T, na qual retorna o valor se caso for alterado o valor dentro da funcao */
+
+void f2(int*b); /* funcao na qual recebe um parametro que retornar o valor do tipo interger. */
+
+
+int main(){
+   T a, b,*c,*d;
+   c = &a; /* ponteiro c recebe referencia de memoria de a. */
+   a.x = 2; /* atribuindo o valor 2 para o campo x do da tipagem T */
+   a.y = 4; /* atribuindo o valor 4 para o campo y do da tipagem */
+   b.x = 2; /* atribuindo o valor 2 para o campo x do da tipagem T variavel b */
+   b.y = 2; /*  atribuindo o valor 2 para o campo x do da tipagem T variabel b */
+   d = c; /* d vai receber o valor de c*/
+   f1(d); /* chama a funcao f1 passando referente o d */
+   b =*d; /* b vai receber o conteudo do ponteiro d */
+   printf("x: %d --- y: %d\n",b.x,b.y); /* mostra o resultado, valor da tipagem b valor x e valor de y */
+}
+
+void f1(T *a){ /* recebe uma variabel do tipo T, na qual vai retornar o estado em que for alterado dentro da funcao */
+   f2(&(a->x)); /* chama a funcao f2 */
+   f2(&(a->y)); /* chama a funcao f2*/
+}
+
+void f2(int*b){ /* funcao recebe o valor inteiro se sofrer alteracao retonar o estatus alterado */
+   *b = 2*(*b); /* o valor ponteiro multimado pelo si proprio. */
+} 
+
+
+
+11 ----------------------------------------------
+
+
+typedef struct{
+   int hour, min, sec;
+}Time; 
+
+int createTime(int sec, Time *t){
+    
+    if(sec < 0){
+        
+        return 1;
+    }
+    
+    if(t == NULL){
+        return 1;
+    }
+   
+    int resto = sec % 3600;
+ 
+    t->hour = sec / 3600;
+    t->min = resto / 60;
+    t->sec = resto % 60;
+
+    return 0;
+};
+
+
+
+12 ----------------------------------------------
+
+typedef struct{
+   int hour, min, sec;
+}Time; 
+
+
+int secondsFromTime(Time *t){
+
+    if(t == NULL){
+        return -1;
+    }
+
+    int segundosHoras       = t->hour * 3600;
+    int segundosMinutos     = t->min * 60;
+    int segundonsSegundos   = t->sec;
+
+    int sucesso = segundosHoras + segundosMinutos + segundonsSegundos;
+
+    return sucesso;
+
+};
