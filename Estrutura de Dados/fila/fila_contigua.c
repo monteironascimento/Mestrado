@@ -65,6 +65,7 @@ Fila* fila_criar(){
     f->tamVetor = TAM_INICIAL;
     f->qtdeElementos = 0;
     f->inicio = f->fim = 0;
+    return f;
 }
 
 void fila_destruir(Fila** enderecoFila){
@@ -119,4 +120,18 @@ int fila_tamanho(Fila* f){
     if(!fila_ehValida(f)) return 0;
 
     return f->qtdeElementos;
+}
+
+void fila_imprimir(Fila* f){
+    if(!fila_ehValida(f)) return;
+
+    printf("[");
+
+    for(int i = 0; i < f->qtdeElementos; i++){
+        printf("%d,", f->vetor[i]);
+       
+    }
+
+    printf("]");
+    printf("\n");
 }

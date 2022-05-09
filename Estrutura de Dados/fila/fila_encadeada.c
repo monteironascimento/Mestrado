@@ -110,3 +110,18 @@ int fila_tamanho(Fila* f){
 
     return f->qtde;
 }
+
+
+void fila_imprimir(Fila* f){
+    //if(!fila_ehValida(f)) return 0;
+
+    //printf("[");
+    
+    /*while(f->inicio != NULL){
+
+        printf("%d,", f->inicio->dado);
+        f->inicio = f->inicio->prox;        
+    }*/
+
+    //printf("]");
+}
