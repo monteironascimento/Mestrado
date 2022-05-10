@@ -54,10 +54,12 @@ atividade02:
 atividade03:
 	# Compilando a implementacao da fila
 	gcc -c fila_contigua.c -o fila_contigua.o
+
+	gcc -c pilha_contigua.c -o pilha_contigua.o
 	
 	# Compilando e gerando o executavel
-	gcc atividade03.c fila_contigua.o -o atividade03
-	
+	gcc atividade03.c fila_contigua.o pilha_contigua.o -o atividade03
+		
 	# Executando
 	./atividade03
 

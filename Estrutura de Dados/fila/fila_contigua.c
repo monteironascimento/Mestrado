@@ -40,7 +40,7 @@ void realoca(Fila* f, int novoTamanho){
     f->tamVetor = novoTamanho;
 }
 
-void verifica_aumenta(Fila* f){
+void verifica_fila_aumenta(Fila* f){
     if(f->qtdeElementos == f->tamVetor - 1){ // precisamos deixar 1 posicao vazia entre o fim e o inicio
         realoca(f, f->tamVetor*2);
     }
@@ -81,7 +81,7 @@ void fila_destruir(Fila** enderecoFila){
 bool fila_inserir(Fila* f, TipoElemento elemento){
     if(!fila_ehValida(f)) return false;
 
-    verifica_aumenta(f);
+    verifica_fila_aumenta(f);
     f->vetor[f->fim] = elemento;
     f->fim = (f->fim + 1) % f->tamVetor;
     f->qtdeElementos++;
@@ -122,16 +122,67 @@ int fila_tamanho(Fila* f){
     return f->qtdeElementos;
 }
 
-void fila_imprimir(Fila* f){
+void fila_imprimir(Fila* f, void (*printElemento)(void*)){
     if(!fila_ehValida(f)) return;
 
     printf("[");
 
     for(int i = 0; i < f->qtdeElementos; i++){
-        printf("%d,", f->vetor[i]);
+        printElemento(f->vetor[i]); //;printf("%d,", f->vetor[i]);
        
     }
 
     printf("]");
     printf("\n");
 }
+
+void fila_imprimir_char(Fila* f){
+    if(!fila_ehValida(f)) return;
+
+    printf("");
+
+    for(int i = 0; i < f->qtdeElementos; i++){
+        printf("%c ", f->vetor[i]);
+    }
+
+    printf("");
+    printf("\n");
+}
+
+void fura_fila(Fila* f, TipoElemento elemento) {
+
+    Fila* f_retorna = fila_criar();
+    fila_inserir(f_retorna, elemento);
+
+    int tamf1 = fila_tamanho(f);
+
+    for (int i = 0; i < tamf1; i++){
+        fila_remover(f, &elemento);
+        fila_inserir(f_retorna, (char) elemento);
+    }
+
+    int tamf1 = fila_tamanho(tamf1);
+        for (int i = 0; i < tamf1; i++){
+        fila_remover(tamf1, &elemento);
+        fila_inserir(f, (char) elemento);
+    }
+}
+
+
+Fila* fila_clone(Fila* f){
+
+    TipoElemento elemento;
+    int tamf1 = fila_tamanho(f);
+
+    for (int i = 0; i < tamf1; i++){
+        elemento = 0;
+        fila_remover(f, &elemento);
+        if(elemento > 0){
+            fila_inserir(f, elemento);
+        }
+    }
+};
+
+
+void fila_inverter(Fila* f);
+bool fila_inserirTodos(Fila* f, TipoElemento* vetor, int tamVetor);

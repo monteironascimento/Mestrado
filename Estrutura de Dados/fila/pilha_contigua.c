@@ -98,6 +98,19 @@ void pilha_imprimir(Pilha* p){
     printf("]");
 }
 
+void pilha_imprimir_char(Pilha* p){
+    if(!pilha_ehValida(p)) return;
+    
+    printf("Contígua");
+    printf("[");
+    int i;
+    for(i=p->qtdeElementos-1; i >=0 ; i--){
+        printf("%c", p->vetor[i]);
+        if(i >= 1) printf(", ");
+    }
+    printf("]");
+}
+
 int pilha_tamanho(Pilha* p){
 
     if(!pilha_ehValida(p)) return false;

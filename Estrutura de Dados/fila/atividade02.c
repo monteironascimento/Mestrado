@@ -16,12 +16,26 @@ void inverter_fila(Fila* f, Pilha* p){
             pilha_empilhar(p, elemento);
         }
     }
+    
+    Pilha* p1 = pilha_criar();
 
+    for (int i = 0; i < tamf1; i++){
+        elemento = 0;
+        pilha_desempilhar(p, &elemento);
+        if(elemento > 0){
+           
+            pilha_empilhar(p1, elemento);
+        }
+    }
 
-    pilha_imprimir(p);
-   
-
-    printf("\n");
+    for (int i = 0; i < tamf1; i++){
+        elemento = 0;
+        pilha_desempilhar(p1, &elemento);
+        if(elemento > 0){
+           
+            fila_inserir(f, elemento);
+        }
+    }
 
 }
 

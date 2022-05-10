@@ -15,6 +15,7 @@ bool pilha_vazia(Pilha* p);
 void pilha_imprimir(Pilha* p);
 int pilha_tamanho(Pilha* p);
 
+void pilha_imprimir_char(Pilha* p);
 //Implementar como exercicio.
 Pilha* pilha_clone(Pilha* p);
 void pilha_inverter(Pilha* p);
