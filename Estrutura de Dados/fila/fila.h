@@ -1,4 +1,4 @@
-#ifndef _FILA_H_
+#define _FILA_H_
 #define _FILA_H_
 
 #include<stdlib.h>
@@ -28,5 +28,3 @@ void fila_imprimir_char(Fila* f);
 void fila_imprimir(Fila* f, void (*printElemento)(void*));
 Fila* fila_clone(Fila* f);
 bool fila_inserirTodos(Fila* f, TipoElemento* vetor, int tamVetor);
-
-#endif

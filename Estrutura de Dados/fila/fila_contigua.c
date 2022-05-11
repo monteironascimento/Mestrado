@@ -128,7 +128,8 @@ void fila_imprimir(Fila* f, void (*printElemento)(void*)){
     printf("[");
 
     for(int i = 0; i < f->qtdeElementos; i++){
-        printElemento(f->vetor[i]); //;printf("%d,", f->vetor[i]);
+        //printElemento(f->vetor[i]); //;printf("%d,", f->vetor[i]);
+        printf("%d,", f->vetor[i]);
        
     }
 
@@ -139,13 +140,10 @@ void fila_imprimir(Fila* f, void (*printElemento)(void*)){
 void fila_imprimir_char(Fila* f){
     if(!fila_ehValida(f)) return;
 
-    printf("");
-
     for(int i = 0; i < f->qtdeElementos; i++){
         printf("%c ", f->vetor[i]);
     }
 
-    printf("");
     printf("\n");
 }
 
@@ -161,9 +159,9 @@ void fura_fila(Fila* f, TipoElemento elemento) {
         fila_inserir(f_retorna, (char) elemento);
     }
 
-    int tamf1 = fila_tamanho(tamf1);
-        for (int i = 0; i < tamf1; i++){
-        fila_remover(tamf1, &elemento);
+    tamf1 = fila_tamanho(f_retorna);
+    for (int i = 0; i < tamf1; i++){
+        fila_remover(f_retorna, &elemento);
         fila_inserir(f, (char) elemento);
     }
 }
@@ -177,9 +175,7 @@ Fila* fila_clone(Fila* f){
     for (int i = 0; i < tamf1; i++){
         elemento = 0;
         fila_remover(f, &elemento);
-        if(elemento > 0){
-            fila_inserir(f, elemento);
-        }
+        fila_inserir(f, elemento);
     }
 };
 
