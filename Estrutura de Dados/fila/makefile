@@ -74,9 +74,7 @@ atividade04:
 	gcc atividade04.c fila_contigua.o -o atividade04
 	
 	# Executando
-	./atividade04
-
-	rm atividade04	
+	./atividade04	
 
 atividade05:
 	# Compilando a implementacao da fila
