@@ -121,21 +121,32 @@ int fila_tamanho(Fila* f){
 
     return f->qtdeElementos;
 }
-
+/*
 void fila_imprimir(Fila* f, void (*printElemento)(void*)){
     if(!fila_ehValida(f)) return;
 
     printf("[");
 
     for(int i = 0; i < f->qtdeElementos; i++){
-        //printElemento(f->vetor[i]); //;printf("%d,", f->vetor[i]);
+        
         printf("%d,", f->vetor[i]);
        
     }
 
     printf("]");
     printf("\n");
+}*/
+
+void fila_imprimir(Fila* f){
+    if(!fila_ehValida(f)) return;
+
+    for(int i = 0; i < f->qtdeElementos; i++){
+        printf("%c ", f->vetor[i]);
+    }
+
+    printf("\n");
 }
+
 
 void fila_imprimir_char(Fila* f){
     if(!fila_ehValida(f)) return;
