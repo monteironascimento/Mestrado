@@ -25,7 +25,7 @@ int main(){
         al.n1 = 9.5;
         al.n2 = 10;
         al.n3 = 6;
-        insereHash_SemColisao(ha, al);
+        insereHash_EnderAberto(ha, al);
     }
 
     for (int i = 0; i < qtVezes; i++)
@@ -36,14 +36,14 @@ int main(){
         al.n1 = 9.5;
         al.n2 = 10;
         al.n3 = 6;
-        insereHash_SemColisao(ha, al);
+        insereHash_EnderAberto(ha, al);
     }
 
     for (int i = 0; i < qtVezes; i++)
     {
         struct Aluno al;
         al.matricula = i;
-        buscarHash_SemColisao(ha, i, &al);
+        buscaHash_EnderAberto(ha, i, &al);
     }
 
     liberarHash(ha);
