@@ -25,6 +25,6 @@ bool fila_vazia(Fila* f);
 int fila_tamanho(Fila* f);
 
 void fila_imprimir_char(Fila* f);
-void fila_imprimir(Fila* f, void (*printElemento)(void*));
+void fila_imprimir(Fila* f);
 Fila* fila_clone(Fila* f);
 bool fila_inserirTodos(Fila* f, TipoElemento* vetor, int tamVetor);
