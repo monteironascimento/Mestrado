@@ -1,4 +1,3 @@
-#ifndef _ARVORE_AVL_H_
 #define _ARVORE_AVL_H_
 
 #include<stdlib.h>
@@ -7,8 +6,6 @@
 
 typedef int TipoElemento;
 typedef struct no No;
-
-
 
 No* avl_inserir(No *raiz, TipoElemento elemento);
 
@@ -20,5 +17,3 @@ void  ab_em_ordem(No* raiz);
 void  ab_pos_ordem(No* raiz);
 int   ab_altura(No *raiz);
 int   ab_total_vertices(No *raiz);
-
-#endif
